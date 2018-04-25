@@ -9,7 +9,7 @@ public class ExpenseCategoryTest {
     public void testAddSubcategories() {
         ExpenseCategory category = new DefaultExpenseCategory("Groceries");
         category.addSubcategory("Bread");
-        assertEquals(category.getSubcategories().size(), 1);
+        assertEquals(1, category.getSubcategories().size());
     }
 
     @Test
@@ -18,6 +18,6 @@ public class ExpenseCategoryTest {
         category.addSubcategory("Books");
         category.addSubcategory("Concerts");
         category.removeSubcategory("Books");
-        assertEquals(category.getSubcategories().size(), 1);
+        assertEquals(1, category.getSubcategories().size());
     }
 }
