@@ -23,6 +23,5 @@ public class DbConnectivityTest {
         MongoClientURI uri = new MongoClientURI(connectionString);
         MongoClient mongoClient = new MongoClient(uri);
         MongoDatabase database = mongoClient.getDatabase("test");
-        database.createCollection("expenseCategories");
     }
 }
