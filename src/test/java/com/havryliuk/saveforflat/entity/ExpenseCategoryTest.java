@@ -30,8 +30,26 @@ public class ExpenseCategoryTest {
     }
 
     @Test
-    public void testEquals() {
+    public void testEqualsForObjectOfDifferentType() {
         ExpenseCategory category = new DefaultExpenseCategory("");
         assertFalse(category.equals(""));
+    }
+
+    @Test
+    public void testEqualsWhenListsOfSubcategoriesAreUnequal() {
+        ExpenseCategory category1 = new DefaultExpenseCategory("Medicine");
+        category1.addSubcategory("Pain killers");
+        ExpenseCategory category2 = new DefaultExpenseCategory("Medicine");
+        assertFalse(category1.equals(category2));
+    }
+
+    @Test
+    public void testEqualsWhenCategoryNamesAreDifferent() {
+
+        ExpenseCategory category1 = new DefaultExpenseCategory("Medicine");
+        category1.addSubcategory("Pain killers");
+        ExpenseCategory category2 = new DefaultExpenseCategory("Car");
+        category2.addSubcategory("Pain killers");
+        assertFalse(category1.equals(category2));
     }
 }
