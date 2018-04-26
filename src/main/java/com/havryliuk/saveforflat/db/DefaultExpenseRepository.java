@@ -1,5 +1,6 @@
 package com.havryliuk.saveforflat.db;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +12,10 @@ import com.havryliuk.saveforflat.entity.ExpenseCategory;
 @Repository
 public class DefaultExpenseRepository implements ExpenseRepository {
     @Autowired
-    private JdbcTemplate jdbcTempate;
+    private JdbcTemplate jdbcTemplate;
 
     @Override
     public List<ExpenseCategory> getAllExpenseCategories() {
-        return null;
+        return new ArrayList<>();
     }
 }

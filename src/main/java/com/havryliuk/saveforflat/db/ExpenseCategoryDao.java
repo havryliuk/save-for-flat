@@ -1,5 +1,6 @@
 package com.havryliuk.saveforflat.db;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,6 @@ public class ExpenseCategoryDao {
     private DefaultExpenseRepository repository;
 
     public List<ExpenseCategory> getAllExpenseCategories() {
-        return null;
+        return new ArrayList<>();
     }
 }
