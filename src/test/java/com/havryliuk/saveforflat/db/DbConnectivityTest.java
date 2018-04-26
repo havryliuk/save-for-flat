@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.mongodb.MongoClient;
@@ -14,6 +15,7 @@ import com.mongodb.client.MongoDatabase;
 public class DbConnectivityTest {
 
     @Test
+    @Ignore
     public void testMongoDbClusterConnectivity() throws IOException {
         Properties properties = new Properties();
         properties.load(new FileInputStream(new File("src\\main\\resources\\db.properties")));
