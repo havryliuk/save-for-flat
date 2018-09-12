@@ -22,7 +22,11 @@ public class DbConfig {
     @Bean
     public MongoDatabase mongoDatabase() {
         MongoClientURI uri = new MongoClientURI(dbUrl);
-        return new MongoClient(uri).getDatabase(dbName);
+        MongoDatabase database;
+        try (MongoClient client = new MongoClient(uri)) {
+            database = client.getDatabase(dbName);
+        }
+        return database;
     }
 
     @Bean
