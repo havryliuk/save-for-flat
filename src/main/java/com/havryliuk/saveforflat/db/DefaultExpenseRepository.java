@@ -5,14 +5,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.havryliuk.saveforflat.entity.ExpenseCategory;
+import com.mongodb.client.MongoDatabase;
 
 @Repository
 public class DefaultExpenseRepository implements ExpenseRepository {
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    private MongoDatabase database;
 
     @Override
     public List<ExpenseCategory> getAllExpenseCategories() {
