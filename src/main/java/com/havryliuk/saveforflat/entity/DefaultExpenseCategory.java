@@ -7,24 +7,18 @@ import java.util.Objects;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.Id;
 
-import javax.persistence.*;
-
-@Entity
 @Getter
 @Setter
 public class DefaultExpenseCategory implements ExpenseCategory, Serializable {
     private static final long serialVersionUID = -4674548881643092068L;
 
-    @Column
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private int id;
 
-    @Column
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<ExpenseCategory> categories = new ArrayList<>();
 
     public DefaultExpenseCategory(String name) {

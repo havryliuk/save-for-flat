@@ -8,7 +8,6 @@ import java.util.List;
 
 @Repository
 public interface ExpenseRepository extends MongoRepository<ExpenseCategory, Integer> {
-    String ID = "_id";
 
     List<ExpenseCategory> getAllExpenseCategories();
 
