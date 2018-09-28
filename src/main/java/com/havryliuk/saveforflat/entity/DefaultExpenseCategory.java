@@ -21,7 +21,7 @@ public class DefaultExpenseCategory implements ExpenseCategory, Serializable {
 
     private List<ExpenseCategory> categories = new ArrayList<>();
 
-    public DefaultExpenseCategory(String name) {
+    private DefaultExpenseCategory(String name) {
         this.name = name;
     }
 

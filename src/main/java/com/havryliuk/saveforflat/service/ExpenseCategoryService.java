@@ -2,7 +2,6 @@ package com.havryliuk.saveforflat.service;
 
 import java.util.List;
 
-import com.havryliuk.saveforflat.entity.DefaultExpenseCategory;
 import com.havryliuk.saveforflat.entity.ExpenseCategory;
 
 public interface ExpenseCategoryService {

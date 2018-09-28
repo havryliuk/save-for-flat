@@ -3,7 +3,6 @@ package com.havryliuk.saveforflat.service;
 import java.util.List;
 
 import com.havryliuk.saveforflat.repository.ExpenseCategoryDao;
-import com.havryliuk.saveforflat.entity.DefaultExpenseCategory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
