@@ -5,37 +5,34 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 
 @Getter
 @Setter
-public class DefaultExpenseCategory implements ExpenseCategory, Serializable {
-    private static final long serialVersionUID = -4674548881643092068L;
+@Builder
+public class DefaultExpenseCategory implements ExpenseCategory {
 
-    @Id
-    private int id;
+    @Builder.Default
+    private String name = "";
 
-    private String name;
-
+    @Builder.Default
     private List<ExpenseCategory> categories = new ArrayList<>();
-
-    private DefaultExpenseCategory(String name) {
-        this.name = name;
-    }
 
     @Override
     public List<ExpenseCategory> getSubcategories() {
         return categories;
     }
 
+    @Override
     public void addSubcategory(String name) {
-        categories.add(new DefaultExpenseCategory(name));
+        categories.add(DefaultExpenseCategory.builder().name(name).build());
     }
 
     public void removeSubcategory(String name) {
-        categories.remove(new DefaultExpenseCategory(name));
+        categories.remove(DefaultExpenseCategory.builder().name(name).build());
     }
 
     @Override

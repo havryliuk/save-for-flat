@@ -11,6 +11,4 @@ public interface ExpenseCategory {
     void removeSubcategory(String categoryName);
 
     String getName();
-
-    int getId();
 }
