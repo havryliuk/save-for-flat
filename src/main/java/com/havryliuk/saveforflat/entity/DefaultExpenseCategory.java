@@ -22,11 +22,6 @@ public class DefaultExpenseCategory implements ExpenseCategory {
     private List<ExpenseCategory> categories = new ArrayList<>();
 
     @Override
-    public List<ExpenseCategory> getSubcategories() {
-        return categories;
-    }
-
-    @Override
     public void addSubcategory(String name) {
         categories.add(DefaultExpenseCategory.builder().name(name).build());
     }
