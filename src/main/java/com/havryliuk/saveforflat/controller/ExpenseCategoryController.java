@@ -1,6 +1,5 @@
 package com.havryliuk.saveforflat.controller;
 
-import com.havryliuk.saveforflat.entity.DefaultExpenseCategory;
 import com.havryliuk.saveforflat.entity.ExpenseCategory;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +12,6 @@ public class ExpenseCategoryController {
 
     @GetMapping
     public List<ExpenseCategory> getExpenseCategories() {
-        return Collections.singletonList(DefaultExpenseCategory.builder().build());
+        return Collections.singletonList(ExpenseCategory.builder().build());
     }
 }

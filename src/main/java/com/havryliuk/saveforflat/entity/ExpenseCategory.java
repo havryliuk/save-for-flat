@@ -1,12 +1,45 @@
 package com.havryliuk.saveforflat.entity;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
-public interface ExpenseCategory {
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
-    void addSubcategory(String categoryName);
+@Getter
+@Setter
+@Builder
+public class ExpenseCategory {
 
-    void removeSubcategory(String categoryName);
+    @Builder.Default
+    private String name = "";
 
-    String getName();
+    @Builder.Default
+    private List<ExpenseCategory> categories = new ArrayList<>();
+
+    public void addSubcategory(String name) {
+        categories.add(ExpenseCategory.builder().name(name).build());
+    }
+
+    public void removeSubcategory(String name) {
+        categories.remove(ExpenseCategory.builder().name(name).build());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return o instanceof ExpenseCategory && ((ExpenseCategory) o).getName().equals(name) && (
+                (ExpenseCategory) o).categories.equals(categories);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, categories);
+    }
+
+    @Override
+    public String toString() {
+        return "ExpenseCategory{" + "name='" + name + '\'' + ", categories=" + categories + '}';
+    }
 }
