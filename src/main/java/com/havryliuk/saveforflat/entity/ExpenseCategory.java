@@ -19,11 +19,11 @@ public class ExpenseCategory {
     @Builder.Default
     private List<ExpenseCategory> categories = new ArrayList<>();
 
-    public void addSubcategory(String name) {
+    void addSubcategory(String name) {
         categories.add(ExpenseCategory.builder().name(name).build());
     }
 
-    public void removeSubcategory(String name) {
+    void removeSubcategory(String name) {
         categories.remove(ExpenseCategory.builder().name(name).build());
     }
 
