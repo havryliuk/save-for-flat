@@ -27,7 +27,7 @@ public class ExpenseCategory {
     }
 
     void removeSubcategory(String name) {
-        categories.remove(ExpenseCategory.builder().name(name).build());
+        categories.remove(ExpenseCategory.builder().name(name).categories(new ArrayList<>()).build());
     }
 
     @Override
