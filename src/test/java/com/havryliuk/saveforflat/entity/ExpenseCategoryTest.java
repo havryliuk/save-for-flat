@@ -13,7 +13,7 @@ public class ExpenseCategoryTest {
     private static final String ALCOHOL = "ALCOHOL";
 
     @Test
-    public void addSubcategory() {
+    public void testAddSubcategory() {
         ExpenseCategory expenseCategory = new ExpenseCategory(FOOD, new ArrayList<>());
         expenseCategory.addSubcategory(ALCOHOL);
         assertEquals(1, expenseCategory.getCategories().size());
@@ -21,7 +21,7 @@ public class ExpenseCategoryTest {
     }
 
     @Test
-    public void removeSubcategory() {
+    public void testRemoveSubcategory() {
         List<ExpenseCategory> subcategories = new ArrayList<>();
         subcategories.add(new ExpenseCategory(ALCOHOL, new ArrayList<>()));
         ExpenseCategory expenseCategory = new ExpenseCategory(FOOD, subcategories);
@@ -30,7 +30,7 @@ public class ExpenseCategoryTest {
     }
 
     @Test
-    public void equals() {
+    public void testEqualObjects() {
         List<ExpenseCategory> subcategories1 = new ArrayList<>();
         subcategories1.add(new ExpenseCategory(ALCOHOL, new ArrayList<>()));
         ExpenseCategory expenseCategory1 = new ExpenseCategory(FOOD, subcategories1);
@@ -40,6 +40,32 @@ public class ExpenseCategoryTest {
         ExpenseCategory expenseCategory2 = new ExpenseCategory(FOOD, subcategories2);
 
         assertEquals(expenseCategory1, expenseCategory2);
+    }
+
+    @Test
+    public void testEqualsUnequalSubcategory() {
+        List<ExpenseCategory> subcategories1 = new ArrayList<>();
+        subcategories1.add(new ExpenseCategory("FISH", new ArrayList<>()));
+        ExpenseCategory expenseCategory1 = new ExpenseCategory(FOOD, subcategories1);
+
+        List<ExpenseCategory> subcategories2 = new ArrayList<>();
+        subcategories2.add(new ExpenseCategory(ALCOHOL, new ArrayList<>()));
+        ExpenseCategory expenseCategory2 = new ExpenseCategory(FOOD, subcategories2);
+
+        assertNotEquals(expenseCategory1, expenseCategory2);
+    }
+
+    @Test
+    public void testEqualsUnequalName() {
+        List<ExpenseCategory> subcategories1 = new ArrayList<>();
+        subcategories1.add(new ExpenseCategory(ALCOHOL, new ArrayList<>()));
+        ExpenseCategory expenseCategory1 = new ExpenseCategory(FOOD, subcategories1);
+
+        List<ExpenseCategory> subcategories2 = new ArrayList<>();
+        subcategories2.add(new ExpenseCategory(ALCOHOL, new ArrayList<>()));
+        ExpenseCategory expenseCategory2 = new ExpenseCategory("TRANSPORT", subcategories2);
+
+        assertNotEquals(expenseCategory1, expenseCategory2);
     }
 
     @Test
@@ -59,5 +85,13 @@ public class ExpenseCategoryTest {
 
         String expected = "ExpenseCategory{name='FOOD', categories=[ExpenseCategory{name='ALCOHOL', categories=[]}]}";
         assertEquals(expected, expenseCategory.toString());
+    }
+
+    @Test
+    public void builderTest() {
+        ExpenseCategory expenseCategory = ExpenseCategory.builder().name(FOOD).build();
+        expenseCategory.setCategories(new ArrayList<>());
+        assertEquals(FOOD, expenseCategory.getName());
+        assertEquals(0, expenseCategory.getCategories().size());
     }
 }
