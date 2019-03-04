@@ -8,5 +8,5 @@ public interface ExpenseCategoryService {
 
     List<ExpenseCategory> getExpenseCategories();
 
-    ExpenseCategory addExpenseCategory(String parent);
+    ExpenseCategory addExpenseCategory(String parent, ExpenseCategory expenseCategory);
 }

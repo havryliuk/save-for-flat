@@ -5,13 +5,18 @@ import java.util.List;
 import java.util.Objects;
 
 import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Data
 @Builder
+@Entity
 public class ExpenseCategory {
+
+    private @Id @GeneratedValue Long id;
 
     @Builder.Default
     private String name = "";

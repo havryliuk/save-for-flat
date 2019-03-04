@@ -20,7 +20,7 @@ public class ExpenseCategoryController {
     }
 
     @PostMapping
-    public ExpenseCategory addExpenseCategory(String parent) {
-        return expenseCategoryService.addExpenseCategory(parent);
+    public ExpenseCategory addExpenseCategory(String parent, @RequestBody ExpenseCategory expenseCategory) {
+        return expenseCategoryService.addExpenseCategory(parent, expenseCategory);
     }
 }
