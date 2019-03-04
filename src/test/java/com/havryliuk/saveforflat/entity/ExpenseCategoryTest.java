@@ -69,6 +69,17 @@ public class ExpenseCategoryTest {
     }
 
     @Test
+    public void testEqualsDifferentClass() {
+        List<ExpenseCategory> subcategories = new ArrayList<>();
+        subcategories.add(new ExpenseCategory(ALCOHOL, new ArrayList<>()));
+        ExpenseCategory expenseCategory = new ExpenseCategory(FOOD, subcategories);
+
+        Integer integer = 5;
+
+        assertNotEquals(expenseCategory, integer);
+    }
+
+    @Test
     public void testHashCode() {
         List<ExpenseCategory> subcategories = new ArrayList<>();
         subcategories.add(new ExpenseCategory(ALCOHOL, new ArrayList<>()));
@@ -89,7 +100,7 @@ public class ExpenseCategoryTest {
 
     @Test
     public void builderTest() {
-        ExpenseCategory expenseCategory = ExpenseCategory.builder().name(FOOD).build();
+        ExpenseCategory expenseCategory = ExpenseCategory.builder().name(FOOD).categories(new ArrayList<>()).build();
         expenseCategory.setCategories(new ArrayList<>());
         assertEquals(FOOD, expenseCategory.getName());
         assertEquals(0, expenseCategory.getCategories().size());
