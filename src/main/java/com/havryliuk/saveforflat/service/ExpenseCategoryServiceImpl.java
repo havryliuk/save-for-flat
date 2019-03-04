@@ -11,8 +11,12 @@ import java.util.List;
 @Service
 public class ExpenseCategoryServiceImpl implements ExpenseCategoryService {
 
+    private final ExpenseCategoryRepository expenseCategoryRepository;
+
     @Autowired
-    private ExpenseCategoryRepository expenseCategoryRepository;
+    public ExpenseCategoryServiceImpl(ExpenseCategoryRepository expenseCategoryRepository) {
+        this.expenseCategoryRepository = expenseCategoryRepository;
+    }
 
     @Override
     public List<ExpenseCategory> getExpenseCategories() {

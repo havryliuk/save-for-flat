@@ -15,9 +15,9 @@ public class ExpenseCategory {
 
     private String name;
 
-    private List<ExpenseCategory> categories = new ArrayList<>();
+    private List<ExpenseCategory> categories;
 
-    protected ExpenseCategory(String name, List<ExpenseCategory> categories) {
+    public ExpenseCategory(String name, List<ExpenseCategory> categories) {
         this.name = name;
         this.categories = categories;
     };
