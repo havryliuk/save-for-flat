@@ -1,12 +1,12 @@
-package com.havryliuk.saveforflat.spring;
+package com.havryliuk.saveforflat;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SaveForFlatSpringBootApplication {
+public class SaveForFlat {
 
     public static void main(String[] args) {
-        SpringApplication.run(SaveForFlatSpringBootApplication.class, args);
+        SpringApplication.run(SaveForFlat.class, args);
     }
 }
